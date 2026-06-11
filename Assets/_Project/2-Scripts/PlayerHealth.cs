@@ -4,7 +4,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private MonsterData monsterData;
     [SerializeField] private GameObject[] fullHearts;
     [SerializeField] private GameObject[] emptyHearts;
     

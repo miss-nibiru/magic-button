@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerSpellCasting : MonoBehaviour
 {
 
-    [SerializeField] private MonsterManager monsterTarget;
+    [SerializeField] private MonsterManager monsterManager;
     [SerializeField] private PlayerHealth playerHealth;
     
     
@@ -18,9 +18,9 @@ public class PlayerSpellCasting : MonoBehaviour
     {
 
         if (!spell) return;
-        if (!monsterTarget) return;
+        if (!monsterManager) return;
 
-        bool successSpell = monsterTarget.DefeatwithSpell(spell);
+        bool successSpell = monsterManager.DefeatwithSpell(spell);
         
         if (!successSpell) playerHealth.TakeDamage(1);
 

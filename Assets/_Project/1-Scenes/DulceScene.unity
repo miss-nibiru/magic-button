@@ -771,6 +771,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356297719}
   m_CullTransparentMesh: 1
+--- !u!1 &429771294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429771295}
+  m_Layer: 0
+  m_Name: === MANAGERS ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429771295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429771294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 497898881}
+  - {fileID: 891241167}
+  - {fileID: 1813342700}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480215955
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,12 +1012,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497898880}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1464216096}
+  m_Father: {fileID: 429771295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &497898882
 MonoBehaviour:
@@ -998,15 +1032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSpawner
   monsterManager: {fileID: 891241168}
-  monsterPrefabs:
-  - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
-  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
-  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
-  - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
-  - {fileID: 236191454578351916, guid: 7655168ce04fd4b9ab977a7a276384fa, type: 3}
   mainGrid: {fileID: 328133152}
   playerHealth: {fileID: 2071794440}
-  maxMonsters: 3
   firstSpawnTime: 1
 --- !u!1 &731849258
 GameObject:
@@ -1204,12 +1231,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891241166}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1464216096}
+  m_Father: {fileID: 429771295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &891241168
 MonoBehaviour:
@@ -1223,7 +1250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67104cb4d373947658572fc7109ecdf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterManager
-  playerHealth: {fileID: 2071794440}
 --- !u!1 &934022647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,8 +1620,6 @@ Transform:
   - {fileID: 242197603}
   - {fileID: 480215956}
   - {fileID: 2026415919}
-  - {fileID: 497898881}
-  - {fileID: 891241167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577352957
@@ -1769,6 +1793,55 @@ Transform:
   - {fileID: 328133151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1813342699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813342700}
+  - component: {fileID: 1813342701}
+  m_Layer: 0
+  m_Name: WaveState_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1813342700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813342699}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 429771295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1813342701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813342699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2e38d2f926644afb0dd19470d2a4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveStateMachine
+  monsterSpawner: {fileID: 497898882}
+  monsterManager: {fileID: 891241168}
+  GreenSlimePrefab: {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  firstWaveTotal: 6
+  firstWaveMax: 2
 --- !u!1 &1899354339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9e6bc7409d7475aabd2eed21f68895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  monsterData: {fileID: 0}
   fullHearts: []
   emptyHearts: []
   maxHealth: 5
@@ -2026,9 +2098,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpellsInputs
   spellCast: {fileID: 2071794443}
   spellButton: 32
-  holdThreshold: 0.5
+  holdThreshold: 0.3
   spellResolver: {fileID: 2071794442}
-  spellFinishDelay: 1
+  spellFinishDelay: 0.5
 --- !u!114 &2071794442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2059,7 +2131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0e195ddef5c44858aec796e8b19821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpellCasting
-  monsterTarget: {fileID: 0}
+  monsterManager: {fileID: 891241168}
   playerHealth: {fileID: 2071794440}
 --- !u!1 &2093742106
 GameObject:
@@ -2136,6 +2208,7 @@ SceneRoots:
   - {fileID: 1899354342}
   - {fileID: 275891863}
   - {fileID: 1589961636}
+  - {fileID: 429771295}
   - {fileID: 834845347}
   - {fileID: 1464216096}
   - {fileID: 2010527150}
