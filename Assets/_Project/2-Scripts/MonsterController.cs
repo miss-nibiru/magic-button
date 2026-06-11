@@ -4,16 +4,18 @@ using UnityEngine;
 /// this script controls the monster movement and how it communicates with the grid and locations
 /// </summary>
 public class MonsterController : MonoBehaviour
+
 {
     [SerializeField] private MainGrid mainGrid;
-    
-    [SerializeField] private int currentColumn;
-    [SerializeField] private int dangerColumn;
-    
+    [SerializeField] private MonsterData monsterData;
     [SerializeField] private PlayerHealth playerHealth;
-    
-    [SerializeField] private float moveSpeed;
+
+    [SerializeField] private int currentColumn;
     private Vector3 _targetPosition;
+    
+    public int CurrentColumn => currentColumn;
+    public int DangerZone => monsterData.DangerZone;
+    public bool CanBeTargeted => gameObject.activeInHierarchy && enabled; //it has to be created already
 
     private void Start()
     {
@@ -23,6 +25,13 @@ public class MonsterController : MonoBehaviour
             return;
         }
         
+        if (!monsterData)
+        {
+            Debug.LogError("MonsterData reference is missing!");
+            return;
+        }
+
+        currentColumn = monsterData.StartingColumn;
         _targetPosition = mainGrid.GetColumnLocation(currentColumn);
         transform.position = _targetPosition; // Start at the initial target position
         
@@ -32,17 +41,17 @@ public class MonsterController : MonoBehaviour
     {
         if (!mainGrid) return;
 
-        // Move towards the target position -- this can be used instead of lerp
+        // Move towards the target position -- this can be used instead of lerp (MoveTowards)
         transform.position = Vector3.MoveTowards
-            (transform.position, _targetPosition, moveSpeed * Time.deltaTime);
+            (transform.position, _targetPosition, monsterData.MonsterSpeed * Time.deltaTime);
 
         // Check if we've reached the target position
         if (Vector3.Distance(transform.position, _targetPosition) < 0.1f)
         {
-            if (dangerColumn >= currentColumn)
+            if (monsterData.DangerZone >= currentColumn)
             {
                 Debug.Log("Monster reached the player on column " + currentColumn);
-                playerHealth.TakeDamage(1); // Assuming the monster does 1 damage for now, change when monsters are created
+                playerHealth.TakeDamage(monsterData.MonsterDamage); //each monster has its own damage so player takes different amount of damage each time
                 enabled = false;
                 return;
             }
@@ -51,6 +60,31 @@ public class MonsterController : MonoBehaviour
             _targetPosition = mainGrid.GetColumnLocation(currentColumn);
         }
         
+    }
+
+    public void InitializeMonster(MainGrid mainGrid, PlayerHealth playerHealth)
+    {
+        
+        this.mainGrid = mainGrid;
+        this.playerHealth = playerHealth;
+        
+    }
+
+    public bool DefeatMonsterwithSpell(SpellData spell)
+    {
+
+        if (spell == monsterData.MonsterWeakness)
+        {
+
+            Debug.Log(monsterData.MonsterName + " was defeated by the spell " + spell.SpellName);
+            Destroy(gameObject);
+            return true;
+
+        }
+
+        Debug.Log(monsterData.MonsterName + " is resistant to " + spell.SpellName);
+        return false;
+
     }
     
     
