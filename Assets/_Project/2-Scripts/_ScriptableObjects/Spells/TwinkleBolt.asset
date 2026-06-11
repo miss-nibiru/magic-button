@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb71c917c0ad042b98a9965709f6138b, type: 3}
-  m_Name: RodentSpell
+  m_Name: TwinkleBolt
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
-  spellName: RodentSpell
-  spellLetter: R
-  spellPattern: .-.
+  spellName: Twinkle Bolt
+  spellLetter: T
+  spellPattern: '-'

@@ -4,6 +4,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private MonsterData monsterData;
     [SerializeField] private GameObject[] fullHearts;
     [SerializeField] private GameObject[] emptyHearts;
     
@@ -25,9 +26,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     public void TakeDamage(int damageAmount)
     {
+        //take different damage per MonsterData 
         
         _currentHealth = _currentHealth - damageAmount;
         Debug.Log("player took damage: " + damageAmount + " health remaining: " + _currentHealth);
+        
         
         if (_currentHealth <= 0)
         {

@@ -8,7 +8,7 @@ public class SpellResolver : MonoBehaviour
 {
    
    [SerializeField] private SpellData[] availableSpells;
-
+  
    public SpellData ResolveSpell(string pattern)
    {
       foreach (SpellData spell in availableSpells)

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d899047f9da47efb348c201c4dda18, type: 3}
+  m_Name: LilacSlimeMonster
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  monsterName: Dark Slime
+  monsterWeakness: {fileID: 11400000, guid: fceca226af9204e64bff4eabb0429774, type: 2}
+  monsterSpeed: 0.5
+  monsterDamage: 2
+  monsterSpawnDelay: 3
+  startingColumn: 13
+  dangerZone: 1
