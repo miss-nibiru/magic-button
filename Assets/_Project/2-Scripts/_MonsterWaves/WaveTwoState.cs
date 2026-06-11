@@ -5,12 +5,12 @@ using UnityEngine;
 /// It decides what monster spawns and how many spawn
 /// </summary>
 
-public class WaveOneState : IWaveState
+public class WaveTwoState : IWaveState
 {
     private WaveStateMachine _waveStateMachine;
     private MonsterSpawner _monsterSpawner;
     private MonsterManager _monsterManager;
-    private GameObject _monsterPrefab;
+    private GameObject[] _monsterPrefab;
 
     private int _totalMonstersToSpawn;
     private int _maxActiveMonsters;
@@ -18,25 +18,25 @@ public class WaveOneState : IWaveState
 
     private bool _waveComplete;
 
-    public WaveOneState(
+    public WaveTwoState(
         WaveStateMachine waveStateMachine,
         MonsterSpawner monsterSpawner,
         MonsterManager monsterManager,
-        GameObject monsterPrefab,
+        GameObject[] monsterPrefab,
         int totalMonstersToSpawn,
         int maxActiveMonsters) // this can't be okay, there should be a better way to do this
     {
         _waveStateMachine = waveStateMachine;
         _monsterSpawner = monsterSpawner;
         _monsterManager = monsterManager;
-        _monsterPrefab = monsterPrefab;
+        _monsterSpawner.SpawnMonster(monsterPrefab);
         _totalMonstersToSpawn = totalMonstersToSpawn;
         _maxActiveMonsters = maxActiveMonsters;
     }
 
     public void StartWave()
     {
-        Debug.Log("Wave One Started!");
+        Debug.Log("Wave Two Started!");
 
         _currentSpawnCount = 0;
         _waveComplete = false;
@@ -61,13 +61,13 @@ public class WaveOneState : IWaveState
         if (finishedSpawning && noMonstersLeft)
         {
             _waveComplete = true;
-            Debug.Log("Wave One Complete!");
-            _waveStateMachine.StartSecondWave();
+            Debug.Log("Wave 2 Complete!");
+            _waveStateMachine.StartThirdWave();
         }
     }
 
     public void StopWave()
     {
-        Debug.Log("Wave One Stopped!");
+        Debug.Log("Wave 2 Stopped!");
     }
 }
