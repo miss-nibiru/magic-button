@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: Dark Slime
   monsterWeakness: {fileID: 11400000, guid: fceca226af9204e64bff4eabb0429774, type: 2}
-  monsterSpeed: 0.5
+  monsterSpeed: 0.4
   monsterDamage: 2
   monsterSpawnDelay: 3
   startingColumn: 13
