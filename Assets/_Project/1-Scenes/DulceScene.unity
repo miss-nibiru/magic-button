@@ -1839,9 +1839,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveStateMachine
   monsterSpawner: {fileID: 497898882}
   monsterManager: {fileID: 891241168}
-  GreenSlimePrefab: {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  greenSlimePrefab: {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
   firstWaveTotal: 6
-  firstWaveMax: 2
+  firstWaveMax: 3
+  slimeKitsunePrefab:
+  - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  secondWaveTotal: 8
+  secondWaveMax: 2
+  kitsuneSnekPrefab:
+  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
+  thirdWaveTotal: 10
+  thirdWaveMax: 2
+  slimeAttack:
+  - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
+  fourthWaveTotal: 12
+  fourthWaveMax: 5
+  finalPrefabs:
+  - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
+  - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
+  - {fileID: 236191454578351916, guid: 7655168ce04fd4b9ab977a7a276384fa, type: 3}
+  finalWaveTotal: 5
+  finalWaveMax: 15
 --- !u!1 &1899354339
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,21 +30,11 @@ public class MonsterManager : MonoBehaviour
 
     public bool DefeatwithSpell(SpellData spell)
     {
+        activeMonsters.RemoveAll(monster => !monster || !monster.CanBeTargeted);
 
-        for (int i = activeMonsters.Count - 1; i >= 0; i--)
+        for (int i = 0; i < activeMonsters.Count; i++)
         {
             MonsterController monster = activeMonsters[i];
-
-            if (!monster)
-            {
-                activeMonsters.RemoveAt(i);
-                continue;
-            }
-
-            if (!monster.CanBeTargeted)
-            {
-                continue;
-            }
 
             bool monsterDefeated = monster.DefeatMonsterwithSpell(spell);
 
@@ -53,9 +43,8 @@ public class MonsterManager : MonoBehaviour
                 activeMonsters.RemoveAt(i);
                 return true;
             }
-            
         }
-        
+
         return false;
         
     }

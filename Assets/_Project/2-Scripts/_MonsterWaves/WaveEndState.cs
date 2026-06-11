@@ -5,12 +5,12 @@ using UnityEngine;
 /// It decides what monster spawns and how many spawn
 /// </summary>
 
-public class WaveOneState : IWaveState
+public class WaveEndState : IWaveState
 {
     private WaveStateMachine _waveStateMachine;
     private MonsterSpawner _monsterSpawner;
     private MonsterManager _monsterManager;
-    private GameObject _monsterPrefab;
+    private GameObject[] _monsterPrefab;
 
     private int _totalMonstersToSpawn;
     private int _maxActiveMonsters;
@@ -18,11 +18,11 @@ public class WaveOneState : IWaveState
 
     private bool _waveComplete;
 
-    public WaveOneState(
+    public WaveEndState(
         WaveStateMachine waveStateMachine,
         MonsterSpawner monsterSpawner,
         MonsterManager monsterManager,
-        GameObject monsterPrefab,
+        GameObject[] monsterPrefab,
         int totalMonstersToSpawn,
         int maxActiveMonsters) // this can't be okay, there should be a better way to do this
     {
@@ -36,7 +36,7 @@ public class WaveOneState : IWaveState
 
     public void StartWave()
     {
-        Debug.Log("Wave One Started!");
+        Debug.Log("THE END!");
 
         _currentSpawnCount = 0;
         _waveComplete = false;
@@ -61,13 +61,15 @@ public class WaveOneState : IWaveState
         if (finishedSpawning && noMonstersLeft)
         {
             _waveComplete = true;
-            Debug.Log("Wave One Complete!");
-            _waveStateMachine.StartSecondWave();
+            Debug.Log("THE END");
+            
+            //REMINDER TO CREATE A GAME WON STATE THAT SHOWS THE PLAYER THE GAME ENDED AND ASK IF CONTINUE OR NOT
+            
         }
     }
 
     public void StopWave()
     {
-        Debug.Log("Wave One Stopped!");
+        Debug.Log("THE END");
     }
 }

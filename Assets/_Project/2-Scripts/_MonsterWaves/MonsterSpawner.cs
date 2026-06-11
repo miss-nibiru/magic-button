@@ -43,4 +43,13 @@ public class MonsterSpawner : MonoBehaviour
         _spawnTimer = firstSpawnTime;
     }
     
+    public void SpawnMonster(GameObject[] monsterPrefabs)
+    {
+        if (monsterPrefabs == null || monsterPrefabs.Length == 0) return;
+
+        GameObject randomPrefab = monsterPrefabs[Random.Range(0, monsterPrefabs.Length)];
+
+        SpawnMonster(randomPrefab);
+    }
+    
 }
