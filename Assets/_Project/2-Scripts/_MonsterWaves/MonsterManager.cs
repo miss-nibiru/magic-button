@@ -9,16 +9,23 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     
-    [SerializeField] private PlayerHealth playerHealth;
     private List<MonsterController> activeMonsters = new List<MonsterController>(); // heres the list of all thingys
-
-
+    
     public void DetectBicho(MonsterController monster)
     {
         
         activeMonsters.Add(monster);
         Debug.Log("Detected Monster " + monster.name);
         
+    }
+
+    public int ActiveMonsterCount
+    {
+        get
+        {
+            activeMonsters.RemoveAll(monster => !monster || !monster.CanBeTargeted);
+            return activeMonsters.Count;
+        }
     }
 
     public bool DefeatwithSpell(SpellData spell)
@@ -31,6 +38,12 @@ public class MonsterManager : MonoBehaviour
             if (!monster)
             {
                 activeMonsters.RemoveAt(i);
+                continue;
+            }
+
+            if (!monster.CanBeTargeted)
+            {
+                continue;
             }
 
             bool monsterDefeated = monster.DefeatMonsterwithSpell(spell);
