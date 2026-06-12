@@ -1,28 +1,28 @@
-using UnityEditor;
 using UnityEngine;
 public class WaveStateMachine : MonoBehaviour
 {
     
     [SerializeField] private MonsterSpawner monsterSpawner;
     [SerializeField] private MonsterManager monsterManager;
+    [SerializeField] private WaveWeaknessUI weaknessUI;
     
     //THIS IS ALL FOR WAVE ONE ONLY
-    [SerializeField] private GameObject greenSlimePrefab;
+    [SerializeField] private GameObject firstWaveMonsterPrefab;
     [SerializeField] private int firstWaveTotal;
     [SerializeField] private int firstWaveMax;
     
     //SECOND WAVE
-    [SerializeField] private GameObject[] slimeKitsunePrefab;
+    [SerializeField] private GameObject[] secondWavePrefab;
     [SerializeField] private int secondWaveTotal;
     [SerializeField] private int secondWaveMax;
     
     //THIRD WAVE
-    [SerializeField] private GameObject[] kitsuneSnekPrefab;
+    [SerializeField] private GameObject[] thirdWavePrefab;
     [SerializeField] private int thirdWaveTotal;
     [SerializeField] private int thirdWaveMax;
     
     //FOURTH WAVE
-    [SerializeField] private GameObject[] slimeAttack;
+    [SerializeField] private GameObject[] fourthWavePrefab;
     [SerializeField] private int fourthWaveTotal;
     [SerializeField] private int fourthWaveMax;
     
@@ -51,11 +51,12 @@ public class WaveStateMachine : MonoBehaviour
             this,
             monsterSpawner,
             monsterManager,
-            greenSlimePrefab,
+            firstWaveMonsterPrefab,
             firstWaveTotal,
             firstWaveMax
         );
 
+        weaknessUI.ShowWaveWeaknessBanners(firstWaveMonsterPrefab);
         ChangeState(waveOneState);
     }
 
@@ -66,11 +67,12 @@ public class WaveStateMachine : MonoBehaviour
             this,
             monsterSpawner,
             monsterManager,
-            slimeKitsunePrefab,
+            secondWavePrefab,
             secondWaveTotal,
             secondWaveMax
         );
 
+        weaknessUI.ShowWaveWeaknessBanners(secondWavePrefab);
         ChangeState(waveTwoState);
 
     }
@@ -81,12 +83,14 @@ public class WaveStateMachine : MonoBehaviour
             this,
             monsterSpawner,
             monsterManager,
-            kitsuneSnekPrefab,
+            thirdWavePrefab,
             thirdWaveTotal,
             thirdWaveMax
             );
         
+        weaknessUI.ShowWaveWeaknessBanners(thirdWavePrefab);
         ChangeState(waveThreeState);
+        
     }
     
     public void StartFourthWave()
@@ -95,11 +99,12 @@ public class WaveStateMachine : MonoBehaviour
             this,
             monsterSpawner,
             monsterManager,
-            slimeAttack,
+            fourthWavePrefab,
             fourthWaveTotal,
             fourthWaveMax
         );
         
+        weaknessUI.ShowWaveWeaknessBanners(fourthWavePrefab);
         ChangeState(waveFourState);
     }
 
@@ -114,6 +119,7 @@ public class WaveStateMachine : MonoBehaviour
             finalWaveMax
         );
         
+        weaknessUI.ShowWaveWeaknessBanners(finalPrefabs);
         ChangeState(waveEndState);
     }
 

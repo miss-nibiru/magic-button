@@ -27,27 +27,7 @@ public class MonsterManager : MonoBehaviour
             return activeMonsters.Count;
         }
     }
-
-    public bool DefeatwithSpell(SpellData spell)
-    {
-        activeMonsters.RemoveAll(monster => !monster || !monster.CanBeTargeted);
-
-        for (int i = 0; i < activeMonsters.Count; i++)
-        {
-            MonsterController monster = activeMonsters[i];
-
-            bool monsterDefeated = monster.DefeatMonsterwithSpell(spell);
-
-            if (monsterDefeated)
-            {
-                activeMonsters.RemoveAt(i);
-                return true;
-            }
-        }
-
-        return false;
-        
-    }
+    
 
     public MonsterController FindCorrectTarget(SpellData spell)
     {

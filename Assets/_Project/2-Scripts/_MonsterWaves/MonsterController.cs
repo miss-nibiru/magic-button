@@ -17,6 +17,8 @@ public class MonsterController : MonoBehaviour
     
     public int CurrentColumn => currentColumn;
     public int DangerZone => monsterData.DangerZone;
+    
+    public MonsterData MonsterData => monsterData;
     public bool CanBeTargeted => gameObject.activeInHierarchy && enabled; //it has to be created already
 
     private void Start()
