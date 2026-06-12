@@ -15,3 +15,4 @@ MonoBehaviour:
   spellName: Eos Glow
   spellLetter: E
   spellPattern: .
+  spellSprite: {fileID: 21300000, guid: ac300d597c9cd4969a2abb832b8d88c0, type: 3}

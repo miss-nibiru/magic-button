@@ -12,6 +12,8 @@ public class MonsterController : MonoBehaviour
 
     [SerializeField] private int currentColumn;
     private Vector3 _targetPosition;
+
+    [SerializeField] private Transform hitTarget;
     
     public int CurrentColumn => currentColumn;
     public int DangerZone => monsterData.DangerZone;
@@ -52,7 +54,7 @@ public class MonsterController : MonoBehaviour
             {
                 Debug.Log("Monster reached the player on column " + currentColumn);
                 playerHealth.TakeDamage(monsterData.MonsterDamage); //each monster has its own damage so player takes different amount of damage each time
-                enabled = false;
+                Destroy(gameObject);
                 return;
             }
 
@@ -67,6 +69,14 @@ public class MonsterController : MonoBehaviour
         
         this.mainGrid = mainGrid;
         this.playerHealth = playerHealth;
+        
+    }
+
+    public Vector3 GetTargetPosition()
+    {
+        if (hitTarget) return hitTarget.position;
+        
+        return transform.position;
         
     }
 
@@ -86,7 +96,11 @@ public class MonsterController : MonoBehaviour
         return false;
 
     }
-    
+
+    public bool IsWeakTo(SpellData spell)
+    {
+        return spell == monsterData.MonsterWeakness;
+    }
     
         
 }

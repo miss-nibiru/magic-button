@@ -48,5 +48,25 @@ public class MonsterManager : MonoBehaviour
         return false;
         
     }
+
+    public MonsterController FindCorrectTarget(SpellData spell)
+    {
+        activeMonsters.RemoveAll(monster => !monster || !monster.CanBeTargeted);
+
+        for (int i = 0; i < activeMonsters.Count; i++)
+        {
+            MonsterController monster = activeMonsters[i];
+
+            if (monster.IsWeakTo(spell))
+            {
+                return monster;
+            }
+            
+        }
+    
+        return null;
+        
+    }
+    
     
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   spellName: Twinkle Bolt
   spellLetter: T
   spellPattern: '-'
+  spellSprite: {fileID: 21300000, guid: 21c1660a7f0514c678b593cd4f477a88, type: 3}
