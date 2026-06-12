@@ -16,6 +16,6 @@ MonoBehaviour:
   monsterWeakness: {fileID: 11400000, guid: fceca226af9204e64bff4eabb0429774, type: 2}
   monsterSpeed: 0.4
   monsterDamage: 2
-  monsterSpawnDelay: 3
+  monsterSpawnDelay: 5
   startingColumn: 13
   dangerZone: 1

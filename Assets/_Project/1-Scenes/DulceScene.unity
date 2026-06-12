@@ -1409,6 +1409,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625478159}
   m_CullTransparentMesh: 1
+--- !u!1 &730816596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730816598}
+  - component: {fileID: 730816597}
+  m_Layer: 0
+  m_Name: WaveWeakness_UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &730816597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730816596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cc40063764541348e54690f879aeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveWeaknessUI
+  mainGrid: {fileID: 328133152}
+  weaknessBanner: {fileID: 4009043180997825963, guid: 15ea92e27f4074624ad75c8eb0a4eebd, type: 3}
+  startingColumn: 7
+  verticalOffset: 6
+--- !u!4 &730816598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730816596}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 834845347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731849258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1625,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 730816598}
   - {fileID: 182951018}
   - {fileID: 1867847134}
   m_Father: {fileID: 0}
@@ -2094,7 +2143,7 @@ GameObject:
   - component: {fileID: 1345507428}
   - component: {fileID: 1345507427}
   m_Layer: 5
-  m_Name: BookBackground
+  m_Name: SpellBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2409,23 +2458,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveStateMachine
   monsterSpawner: {fileID: 497898882}
   monsterManager: {fileID: 891241168}
-  greenSlimePrefab: {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
-  firstWaveTotal: 6
+  weaknessUI: {fileID: 730816597}
+  firstWaveMonsterPrefab: {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  firstWaveTotal: 8
   firstWaveMax: 3
-  slimeKitsunePrefab:
+  secondWavePrefab:
   - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
   - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
-  secondWaveTotal: 8
+  secondWaveTotal: 10
   secondWaveMax: 2
-  kitsuneSnekPrefab:
-  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
-  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
-  thirdWaveTotal: 10
-  thirdWaveMax: 2
-  slimeAttack:
+  thirdWavePrefab:
   - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
+  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  thirdWaveTotal: 12
+  thirdWaveMax: 2
+  fourthWavePrefab:
+  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
-  fourthWaveTotal: 12
+  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  fourthWaveTotal: 15
   fourthWaveMax: 5
   finalPrefabs:
   - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
@@ -2433,7 +2485,7 @@ MonoBehaviour:
   - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
   - {fileID: 236191454578351916, guid: 7655168ce04fd4b9ab977a7a276384fa, type: 3}
-  finalWaveTotal: 5
+  finalWaveTotal: 20
   finalWaveMax: 15
 --- !u!1 &1838247489
 GameObject:

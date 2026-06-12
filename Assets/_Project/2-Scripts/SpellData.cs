@@ -13,6 +13,8 @@ public class SpellData : ScriptableObject
     [SerializeField] private string spellLetter;
     [SerializeField] private string spellPattern;
     [SerializeField] private Sprite spellSprite;
+    [SerializeField] private Sprite spellWaveBanner;
+    [SerializeField] private Sprite spellBookBanner;
    
     
     public string SpellName => spellName;
@@ -20,6 +22,10 @@ public class SpellData : ScriptableObject
     public string SpellPattern => spellPattern;
     
     public Sprite SpellSprite => spellSprite;
+    
+    public Sprite SpellWaveBanner => spellWaveBanner;
+    
+    public Sprite SpellBookBanner => spellBookBanner;
     
     
 }

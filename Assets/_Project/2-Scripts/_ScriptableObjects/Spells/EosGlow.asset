@@ -16,3 +16,5 @@ MonoBehaviour:
   spellLetter: E
   spellPattern: .
   spellSprite: {fileID: 21300000, guid: ac300d597c9cd4969a2abb832b8d88c0, type: 3}
+  spellWaveBanner: {fileID: 21300000, guid: 4d496264f57be4c22b4f9a5830376217, type: 3}
+  spellBookBanner: {fileID: 21300000, guid: c4643729463fe43fbaec18fa157c4421, type: 3}
