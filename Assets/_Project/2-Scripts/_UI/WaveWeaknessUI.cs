@@ -13,6 +13,7 @@ public class WaveWeaknessUI : MonoBehaviour
 
     [SerializeField] private int startingColumn;
     [SerializeField] private float verticalOffset;
+    [SerializeField] private int columnSpacing;
 
     private List<GameObject> _activeBanners = new List<GameObject>();
 
@@ -31,7 +32,7 @@ public class WaveWeaknessUI : MonoBehaviour
             SpellData weaknessSpell = monsterController.MonsterData.MonsterWeakness;
             if (!weaknessSpell) continue;
 
-            int column = startingColumn - i;
+            int column = startingColumn - (i * columnSpacing);
 
             Vector3 bannerPosition = mainGrid.GetColumnLocation(column);
             bannerPosition += new Vector3(0f, verticalOffset, 0f);

@@ -5,6 +5,7 @@ public class WaveStateMachine : MonoBehaviour
     [SerializeField] private MonsterSpawner monsterSpawner;
     [SerializeField] private MonsterManager monsterManager;
     [SerializeField] private WaveWeaknessUI weaknessUI;
+    [SerializeField] private SpellBookUI spellBookUI;
     
     //THIS IS ALL FOR WAVE ONE ONLY
     [SerializeField] private GameObject firstWaveMonsterPrefab;
@@ -57,6 +58,7 @@ public class WaveStateMachine : MonoBehaviour
         );
 
         weaknessUI.ShowWaveWeaknessBanners(firstWaveMonsterPrefab);
+        UpdateBookSpells(firstWaveMonsterPrefab);
         ChangeState(waveOneState);
     }
 
@@ -73,6 +75,7 @@ public class WaveStateMachine : MonoBehaviour
         );
 
         weaknessUI.ShowWaveWeaknessBanners(secondWavePrefab);
+        UpdateBookSpells(secondWavePrefab);
         ChangeState(waveTwoState);
 
     }
@@ -89,6 +92,7 @@ public class WaveStateMachine : MonoBehaviour
             );
         
         weaknessUI.ShowWaveWeaknessBanners(thirdWavePrefab);
+        UpdateBookSpells(thirdWavePrefab);
         ChangeState(waveThreeState);
         
     }
@@ -105,6 +109,7 @@ public class WaveStateMachine : MonoBehaviour
         );
         
         weaknessUI.ShowWaveWeaknessBanners(fourthWavePrefab);
+        UpdateBookSpells(fourthWavePrefab);
         ChangeState(waveFourState);
     }
 
@@ -120,6 +125,7 @@ public class WaveStateMachine : MonoBehaviour
         );
         
         weaknessUI.ShowWaveWeaknessBanners(finalPrefabs);
+        UpdateBookSpells(finalPrefabs);
         ChangeState(waveEndState);
     }
 
@@ -132,6 +138,31 @@ public class WaveStateMachine : MonoBehaviour
 
         _currentState?.StartWave();
     }
+
+    private void UpdateBookSpells(GameObject[] monsterPrefabs)
+    {
+        SpellData[] neededSpells = new SpellData[monsterPrefabs.Length];
+        for (int i = 0; i < monsterPrefabs.Length; i++)
+
+        {
+            
+            MonsterController monsterController  = monsterPrefabs[i].GetComponent<MonsterController>();
+            
+            if (!monsterController) continue;
+
+            neededSpells[i] = monsterController.MonsterData.MonsterWeakness;
+
+        }
+        
+        spellBookUI.ShowUsefulSpells(neededSpells);
+        
+    }
+    
+    private void UpdateBookSpells(GameObject monsterPrefab)
+    {
+        UpdateBookSpells(new GameObject[] { monsterPrefab });
+    }
+    
     
 }
 
