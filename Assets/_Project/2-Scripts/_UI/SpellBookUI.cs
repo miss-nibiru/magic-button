@@ -8,7 +8,7 @@ public class SpellBookUI : MonoBehaviour
     [SerializeField] private SpellData[] allSpells;
     [SerializeField] private SpellBookEntryUI[] spellEntries;
 
-    private void Start()
+    private void Awake()
     {
         BuildSpellBook();
     }
