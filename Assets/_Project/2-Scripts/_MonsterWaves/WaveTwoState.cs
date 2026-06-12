@@ -29,7 +29,7 @@ public class WaveTwoState : IWaveState
         _waveStateMachine = waveStateMachine;
         _monsterSpawner = monsterSpawner;
         _monsterManager = monsterManager;
-        _monsterSpawner.SpawnMonster(monsterPrefab);
+        _monsterPrefab = monsterPrefab;
         _totalMonstersToSpawn = totalMonstersToSpawn;
         _maxActiveMonsters = maxActiveMonsters;
     }

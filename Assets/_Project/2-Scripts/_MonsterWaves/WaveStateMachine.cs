@@ -95,9 +95,9 @@ public class WaveStateMachine : MonoBehaviour
             this,
             monsterSpawner,
             monsterManager,
-            kitsuneSnekPrefab,
-            thirdWaveTotal,
-            thirdWaveMax
+            slimeAttack,
+            fourthWaveTotal,
+            fourthWaveMax
         );
         
         ChangeState(waveFourState);
@@ -109,9 +109,9 @@ public class WaveStateMachine : MonoBehaviour
             this,
             monsterSpawner,
             monsterManager,
-            kitsuneSnekPrefab,
-            thirdWaveTotal,
-            thirdWaveMax
+            finalPrefabs,
+            finalWaveTotal,
+            finalWaveMax
         );
         
         ChangeState(waveEndState);

@@ -40,6 +40,7 @@ public class PlayerSpellsInputs : MonoBehaviour
                 else
                 {
                     Debug.Log("Player failed to cast a valid spell");
+                    spellCast.FailSpell();
                 }
 
                 _currentSpellPattern = "";

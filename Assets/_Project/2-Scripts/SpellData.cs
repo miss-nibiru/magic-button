@@ -12,11 +12,14 @@ public class SpellData : ScriptableObject
     [SerializeField] private string spellName;
     [SerializeField] private string spellLetter;
     [SerializeField] private string spellPattern;
+    [SerializeField] private Sprite spellSprite;
    
     
     public string SpellName => spellName;
     public string SpellLetter => spellLetter;
     public string SpellPattern => spellPattern;
+    
+    public Sprite SpellSprite => spellSprite;
     
     
 }
