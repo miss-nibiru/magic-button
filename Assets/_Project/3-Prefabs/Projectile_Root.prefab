@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellProjectile
   projectileSprite: {fileID: 807646806685011005}
-  moveSpeed: 5
+  moveSpeed: 8
   hitDistance: 0.1
 --- !u!1 &7202018281341572523
 GameObject:
