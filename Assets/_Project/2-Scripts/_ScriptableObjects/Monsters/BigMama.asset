@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: Big Mama Hand
   monsterWeakness: {fileID: 11400000, guid: d716cf36cce674186bc069ad2253d56a, type: 2}
-  monsterSpeed: 0.4
+  monsterSpeed: 0.45
   monsterDamage: 3
-  monsterSpawnDelay: 12
+  monsterSpawnDelay: 10
   startingColumn: 12
   dangerZone: 0

@@ -24,9 +24,7 @@ public class MonsterManager : MonoBehaviour
     }
     public void DetectBicho(MonsterController monster)
     {
-        
         activeMonsters.Add(monster);
-        Debug.Log("Detected Monster " + monster.name);
         
     }
 
@@ -56,6 +54,16 @@ public class MonsterManager : MonoBehaviour
         }
     
         return null;
+        
+    }
+
+    public void PushAllBack()
+    {
+        activeMonsters.RemoveAll(monster => !monster || !monster.CanBeTargeted);
+        foreach (MonsterController monster in activeMonsters)
+        {
+            monster.PushAfterDamaging();
+        }
         
     }
     

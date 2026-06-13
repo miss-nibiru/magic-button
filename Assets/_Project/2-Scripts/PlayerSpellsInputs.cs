@@ -5,7 +5,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerSpellsInputs : MonoBehaviour
 {
-    [SerializeField] private SpellBookUI spellbookUI;
+    [SerializeField] private SpellTextUI spellTextUI;
+    [SerializeField] private SpellBookUI spellBookUI;
     [SerializeField] private PlayerSpellCasting spellCast;
     [SerializeField] private KeyCode spellButton; // dude i found this and its rough but super easy ill just this for prototypes forever now
     [SerializeField] private float holdThreshold; // how long the button needs to be held to be considered a hold instead of a tap
@@ -14,7 +15,6 @@ public class PlayerSpellsInputs : MonoBehaviour
     [SerializeField] private float spellFinishDelay;
     
     private string _currentSpellPattern; // store the current spell pattern as the player inputs it
-    private string _currentSpellName;
     private float _finishTimer;
     private bool _buildingSpell; //stores when the player is still buildign the spell
     
@@ -37,9 +37,14 @@ public class PlayerSpellsInputs : MonoBehaviour
 
                 if (!resolvedSpell)
                 {
-                    if (spellbookUI)
+                    if (spellBookUI)
                     {
-                        spellbookUI.ShowInvalidPatternFeedback();
+                        spellBookUI.ShowInvalidPatternFeedback();
+                    }
+
+                    if (spellTextUI)
+                    {
+                        spellTextUI.ShowDizzyBish();
                     }
 
                     _currentSpellPattern = "";
@@ -62,7 +67,6 @@ public class PlayerSpellsInputs : MonoBehaviour
            _buttonPressTime = Time.time;
            _isHolding = true;
            
-           Debug.Log("spell button pressed");
         }
 
         if (Input.GetKeyUp(spellButton)) // when the button is released check how long it was held
@@ -73,20 +77,22 @@ public class PlayerSpellsInputs : MonoBehaviour
             if (heldTime >= holdThreshold)
             {
                 _currentSpellPattern += "-";
+                if(spellTextUI) spellTextUI.ShowSpellPattern(_currentSpellPattern);
+                
                 _finishTimer = spellFinishDelay;
                 _buildingSpell = true;
-                Debug.Log("HOLD");
+                
             }
             
             else
             {
                 _currentSpellPattern += ".";
+                if (spellTextUI) spellTextUI.ShowSpellPattern(_currentSpellPattern);
+                
                 _finishTimer = spellFinishDelay; 
                 _buildingSpell = true;
-                Debug.Log("TAP");
+                
             }
-            
-            Debug.Log("Player cast the spell" + _currentSpellPattern + _currentSpellName);
             
         }
         

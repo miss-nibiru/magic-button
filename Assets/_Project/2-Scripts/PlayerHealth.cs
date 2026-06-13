@@ -6,6 +6,7 @@ using UnityEngine;
 /// 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private MonsterManager monsterManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private PlayerAudio playerAudio;
     
@@ -30,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
 
         if (playerAudio) playerAudio.PlayPlayerHitSound();
+        if (monsterManager) monsterManager.PushAllBack();
+        
         UpdateHeartsUI();
 
         if (_currentHealth <= 0) DieBish();
@@ -49,8 +52,6 @@ public class PlayerHealth : MonoBehaviour
     public void DieBish()
     {
         _isDead = true;
-        Debug.Log("Player is dead");
-        
         gameManager.BishIsDead();
         
     }
