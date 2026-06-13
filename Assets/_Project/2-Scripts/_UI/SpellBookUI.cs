@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 /// <summary>
@@ -44,6 +45,43 @@ public class SpellBookUI : MonoBehaviour
             entry.SetUseful(isNeeded);
         }
     }
+    
+    public void ShowSuccessForSpell(SpellData spell)
+    {
+        SpellBookEntryUI entry = FindSpellEntry(spell);
+
+        if (!entry)
+        {
+            return;
+        }
+
+        entry.PlaySuccessReaction();
+    }
+    
+    public void ShowFailedSpellFeedback(SpellData spell)
+    {
+        SpellBookEntryUI entry = FindSpellEntry(spell);
+
+        if (!entry)
+        {
+            return;
+        }
+
+        entry.PlayFailEffect();
+    }
+    
+    public void ShowInvalidPatternFeedback()
+    {
+        foreach (SpellBookEntryUI entry in spellEntries)
+        {
+            if (!entry)
+            {
+                continue;
+            }
+
+            entry.PlayFailEffect();
+        }
+    }
 
     private bool IsSpellNeeded(SpellData spell, SpellData[] neededSpells)
     {
@@ -61,6 +99,24 @@ public class SpellBookUI : MonoBehaviour
 
         return false;
     }
+
+    private SpellBookEntryUI FindSpellEntry(SpellData spell)
+    {
+        if (!spell) return null;
+
+        foreach (SpellBookEntryUI entry in spellEntries)
+        {
+            if (!entry) continue;
+
+            if (entry.Spell == spell)
+            {
+                return entry;
+            }
+        }
+
+        return null;
+    }
     
-    
+
+
 }

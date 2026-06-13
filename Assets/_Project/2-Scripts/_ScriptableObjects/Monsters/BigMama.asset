@@ -17,5 +17,5 @@ MonoBehaviour:
   monsterSpeed: 0.3
   monsterDamage: 3
   monsterSpawnDelay: 7
-  startingColumn: 10
+  startingColumn: 11
   dangerZone: 0
