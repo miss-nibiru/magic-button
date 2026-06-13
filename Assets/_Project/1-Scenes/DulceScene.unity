@@ -144,12 +144,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18131373}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 429771295}
+  m_Father: {fileID: 2071794439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &18131375
 AudioSource:
@@ -867,9 +867,9 @@ RectTransform:
   - {fileID: 1765144374}
   m_Father: {fileID: 2093742107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -700}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &356297722
@@ -1113,7 +1113,6 @@ Transform:
   - {fileID: 497898881}
   - {fileID: 891241167}
   - {fileID: 1813342700}
-  - {fileID: 18131374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436763952
@@ -1884,9 +1883,9 @@ RectTransform:
   - {fileID: 393261366}
   m_Father: {fileID: 2093742107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -900}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &731849261
@@ -1981,9 +1980,9 @@ RectTransform:
   - {fileID: 1032561051}
   m_Father: {fileID: 2093742107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &766735514
@@ -2429,9 +2428,9 @@ RectTransform:
   - {fileID: 608779985}
   m_Father: {fileID: 2093742107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -500}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1091018648
@@ -2526,9 +2525,9 @@ RectTransform:
   - {fileID: 1504980904}
   m_Father: {fileID: 2093742107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1292771662
@@ -3231,29 +3230,29 @@ MonoBehaviour:
   firstWaveMax: 3
   secondWavePrefab:
   - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
-  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   secondWaveTotal: 10
-  secondWaveMax: 2
+  secondWaveMax: 3
   thirdWavePrefab:
   - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
   - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
-  - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
-  thirdWaveTotal: 12
-  thirdWaveMax: 2
-  fourthWavePrefab:
-  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
+  thirdWaveTotal: 12
+  thirdWaveMax: 5
+  fourthWavePrefab:
   - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
+  - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   fourthWaveTotal: 15
-  fourthWaveMax: 5
+  fourthWaveMax: 6
   finalPrefabs:
   - {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
   - {fileID: 236191454578351916, guid: 1a70e2aa1d7c84e519a07866a973a3b5, type: 3}
   - {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   - {fileID: 236191454578351916, guid: b12a5f0a0364045caab46ee51331cac1, type: 3}
   - {fileID: 236191454578351916, guid: 7655168ce04fd4b9ab977a7a276384fa, type: 3}
-  finalWaveTotal: 20
-  finalWaveMax: 15
+  finalWaveTotal: 18
+  finalWaveMax: 10
 --- !u!1 &1838247489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,6 +3655,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 18131374}
   - {fileID: 495834235}
   - {fileID: 196819055}
   m_Father: {fileID: 2010527150}
@@ -3673,6 +3673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   gameManager: {fileID: 1334948597}
+  playerAudio: {fileID: 2071794444}
   fullHearts:
   - {fileID: 436763952}
   - {fileID: 403390568}
@@ -3697,7 +3698,7 @@ MonoBehaviour:
   spellbookUI: {fileID: 1345507429}
   spellCast: {fileID: 2071794443}
   spellButton: 32
-  holdThreshold: 0.3
+  holdThreshold: 0.2
   spellResolver: {fileID: 2071794442}
   spellFinishDelay: 0.5
 --- !u!114 &2071794442
@@ -3730,6 +3731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0e195ddef5c44858aec796e8b19821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpellCasting
+  playerAudio: {fileID: 2071794444}
   spellBookUI: {fileID: 1345507429}
   monsterManager: {fileID: 891241168}
   playerHealth: {fileID: 2071794440}
@@ -3760,9 +3762,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fc6b919cf742a4e67b0bc871e9881f84, type: 3}
   playerHitClips:
   - {fileID: 8300000, guid: 3f575aa0d9e844c06860886dc7b732dc, type: 3}
-  - {fileID: 8300000, guid: 2581b3f3a39404d65813ceac49c192b9, type: 3}
-  minPitch: 0.85
-  maxPitch: 1.15
+  - {fileID: 8300000, guid: 86108165c90604506b33e4117a316291, type: 3}
+  minPitch: 1.5
+  maxPitch: 2
 --- !u!1 &2093742106
 GameObject:
   m_ObjectHideFlags: 0

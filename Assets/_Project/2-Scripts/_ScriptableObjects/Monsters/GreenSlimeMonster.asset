@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: Green Slime
   monsterWeakness: {fileID: 11400000, guid: 4ee8cc649813b46929eeea61e32b3b14, type: 2}
-  monsterSpeed: 0.6
+  monsterSpeed: 0.8
   monsterDamage: 1
-  monsterSpawnDelay: 5
+  monsterSpawnDelay: 4
   startingColumn: 11
   dangerZone: 1

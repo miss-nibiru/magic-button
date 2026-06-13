@@ -10,6 +10,7 @@ using System.Collections;
 /// </summary>
 public class PlayerSpellCasting : MonoBehaviour
 {
+    [SerializeField] private PlayerAudio playerAudio;
     [SerializeField] private SpellBookUI spellBookUI;
     [SerializeField] private MonsterManager monsterManager;
     [SerializeField] private PlayerHealth playerHealth;
@@ -45,11 +46,14 @@ public class PlayerSpellCasting : MonoBehaviour
             StartDizzyCooldown();
             return;
         }
+        
 
         if (spellBookUI)
         {
             spellBookUI.ShowSuccessForSpell(spell);
         }
+        
+        if (playerAudio) playerAudio.PlaySpellCastSound(); playerAudio.PlayPlayerCastSound();
 
         SpellProjectile projectile = Instantiate(
             spellProjectile,
@@ -63,10 +67,7 @@ public class PlayerSpellCasting : MonoBehaviour
     private void StartDizzyCooldown()
     {
         
-        if (_dizzyCoroutine != null)
-        { 
-            StopCoroutine(_dizzyCoroutine);
-        }
+        if (_dizzyCoroutine != null) StopCoroutine(_dizzyCoroutine);
 
         _dizzyCoroutine = StartCoroutine(DizzyRoutine());
 
@@ -75,7 +76,7 @@ public class PlayerSpellCasting : MonoBehaviour
     private IEnumerator DizzyRoutine()
     {
         _isDizzy = true;
-        Debug.Log("Player SpellCasting Dizzy");
+        Debug.Log("Player SpellCasting Dizzy"); // need ui to show this in the future
         
         yield return new WaitForSeconds(dizzyCoolDown);
         

@@ -13,8 +13,8 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private AudioClip[] playerCastClips;
     [SerializeField] private AudioClip[] playerHitClips;
 
-    [SerializeField] private float minPitch = 0.85f;
-    [SerializeField] private float maxPitch = 1.15f;
+    [SerializeField] private float minPitch;
+    [SerializeField] private float maxPitch;
 
     public void PlaySpellCastSound()
     {
@@ -46,7 +46,6 @@ public class PlayerAudio : MonoBehaviour
 
     public void PlayPlayerHitSound()
     {
-        if (!audioSource) return;
         if (!audioSource) return;
 
         if (playerHitClips == null || playerHitClips.Length == 0) return;
