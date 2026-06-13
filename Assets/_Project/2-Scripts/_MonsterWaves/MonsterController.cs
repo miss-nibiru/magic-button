@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// this script controls the monster movement and how it communicates with the grid and locations
@@ -24,16 +25,10 @@ public class MonsterController : MonoBehaviour
     private void Start()
     {
         if (!mainGrid)
-        {
-            Debug.LogError("MainGrid reference is missing!");
             return;
-        }
         
         if (!monsterData)
-        {
-            Debug.LogError("MonsterData reference is missing!");
             return;
-        }
 
         currentColumn = monsterData.StartingColumn;
         _targetPosition = mainGrid.GetColumnLocation(currentColumn);
@@ -54,7 +49,6 @@ public class MonsterController : MonoBehaviour
         {
             if (monsterData.DangerZone >= currentColumn)
             {
-                Debug.Log("Monster reached the player on column " + currentColumn);
                 playerHealth.TakeDamage(monsterData.MonsterDamage); //each monster has its own damage so player takes different amount of damage each time
                 Destroy(gameObject);
                 return;
@@ -87,14 +81,12 @@ public class MonsterController : MonoBehaviour
 
         if (spell == monsterData.MonsterWeakness)
         {
-
-            Debug.Log(monsterData.MonsterName + " was defeated by the spell " + spell.SpellName);
+            
             Destroy(gameObject);
             return true;
 
         }
-
-        Debug.Log(monsterData.MonsterName + " is resistant to " + spell.SpellName);
+        
         return false;
 
     }
@@ -103,6 +95,17 @@ public class MonsterController : MonoBehaviour
     {
         return spell == monsterData.MonsterWeakness;
     }
-    
+
+    public void PushAfterDamaging() // when the player takes damage all the monsters get pushed one column so its not that punishing
+    {
+        if(!mainGrid) return;
+        int newColumn = currentColumn + 1;
+
+        if (newColumn > mainGrid.gridSize - 1) newColumn = mainGrid.gridSize - 1;
+
+        currentColumn = newColumn;
+        _targetPosition = mainGrid.GetColumnLocation(currentColumn);
+
+    }
         
 }

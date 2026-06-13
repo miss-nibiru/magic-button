@@ -15,7 +15,7 @@ MonoBehaviour:
   monsterName: Fire Kitsune
   monsterWeakness: {fileID: 11400000, guid: afe62c1702d7e49e58eabfc262cdfc8a, type: 2}
   monsterSpeed: 1
-  monsterDamage: 1
-  monsterSpawnDelay: 3
+  monsterDamage: 2
+  monsterSpawnDelay: 4
   startingColumn: 11
-  dangerZone: 1
+  dangerZone: 0

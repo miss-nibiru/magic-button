@@ -10,6 +10,7 @@ using System.Collections;
 /// </summary>
 public class PlayerSpellCasting : MonoBehaviour
 {
+    [SerializeField] private SpellTextUI spellText;
     [SerializeField] private PlayerAudio playerAudio;
     [SerializeField] private SpellBookUI spellBookUI;
     [SerializeField] private MonsterManager monsterManager;
@@ -38,20 +39,15 @@ public class PlayerSpellCasting : MonoBehaviour
         if (!target)
         {
 
-            if (spellBookUI)
-            {
-                spellBookUI.ShowFailedSpellFeedback(spell);
-            }
+            if (spellBookUI) spellBookUI.ShowFailedSpellFeedback(spell);
+            if (spellText) spellText.ShowDizzyBish();
 
             StartDizzyCooldown();
             return;
         }
         
-
-        if (spellBookUI)
-        {
-            spellBookUI.ShowSuccessForSpell(spell);
-        }
+        if (spellBookUI) spellBookUI.ShowSuccessForSpell(spell);
+        if (spellText) spellText.ShowSpellName(spell);
         
         if (playerAudio) playerAudio.PlaySpellCastSound(); playerAudio.PlayPlayerCastSound();
 

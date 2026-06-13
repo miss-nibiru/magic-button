@@ -15,7 +15,7 @@ MonoBehaviour:
   monsterName: Snek Jazz
   monsterWeakness: {fileID: 11400000, guid: c27794f127acf40fe9845c4803887e29, type: 2}
   monsterSpeed: 1.3
-  monsterDamage: 2
-  monsterSpawnDelay: 3
+  monsterDamage: 1
+  monsterSpawnDelay: 4
   startingColumn: 11
   dangerZone: 1
