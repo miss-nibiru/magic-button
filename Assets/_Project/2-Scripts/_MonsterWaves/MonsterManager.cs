@@ -10,7 +10,18 @@ public class MonsterManager : MonoBehaviour
 {
     
     private List<MonsterController> activeMonsters = new List<MonsterController>(); // heres the list of all thingys
-    
+
+
+    public bool MonsterInColumn(int column)
+    {
+        activeMonsters.RemoveAll(monster => !monster.CanBeTargeted);
+
+        foreach (MonsterController monster in activeMonsters)
+            if (monster.CurrentColumn == column) return true;
+        
+        return false;
+        
+    }
     public void DetectBicho(MonsterController monster)
     {
         

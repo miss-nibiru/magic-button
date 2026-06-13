@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-    
+    [SerializeField] private PlayerAudio playerAudio;
     
     [SerializeField] private GameObject[] fullHearts;
     [SerializeField] private GameObject[] emptyHearts;
@@ -29,14 +29,10 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth -= damageAmount;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
 
-        Debug.Log("player took damage: " + damageAmount + " health remaining: " + _currentHealth);
-
+        if (playerAudio) playerAudio.PlayPlayerHitSound();
         UpdateHeartsUI();
 
-        if (_currentHealth <= 0)
-        {
-            DieBish();
-        }
+        if (_currentHealth <= 0) DieBish();
     }
 
     private void UpdateHeartsUI()

@@ -31,12 +31,31 @@ public class MonsterSpawner : MonoBehaviour
     public void SpawnMonster(GameObject monsterPrefab)
     {
         if (!monsterPrefab) return;
-        
+
+        MonsterController prefabMonster = monsterPrefab.GetComponent<MonsterController>();
+
+        if (!prefabMonster) return;
+
+        MonsterData monsterData = prefabMonster.MonsterData;
+
+        if (!monsterData) return;
+
+        int spawnColumn = monsterData.StartingColumn;
+
+        if (monsterManager.MonsterInColumn(spawnColumn))
+        {
+            Debug.Log("Blocked monster spawn. Column already occupied: " + spawnColumn);
+
+            _spawnTimer = firstSpawnTime;
+            return;
+        }
+
         GameObject spawnedMonster = Instantiate(monsterPrefab);
+
         MonsterController monsterController = spawnedMonster.GetComponent<MonsterController>();
-       
+
         if (!monsterController) return;
-       
+
         monsterController.InitializeMonster(mainGrid, playerHealth);
         monsterManager.DetectBicho(monsterController);
 
