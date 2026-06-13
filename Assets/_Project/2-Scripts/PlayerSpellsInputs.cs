@@ -5,6 +5,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerSpellsInputs : MonoBehaviour
 {
+    [SerializeField] private SpellBookUI spellbookUI;
     [SerializeField] private PlayerSpellCasting spellCast;
     [SerializeField] private KeyCode spellButton; // dude i found this and its rough but super easy ill just this for prototypes forever now
     [SerializeField] private float holdThreshold; // how long the button needs to be held to be considered a hold instead of a tap
@@ -30,23 +31,26 @@ public class PlayerSpellsInputs : MonoBehaviour
 
             if (_finishTimer <= 0)
             {
-                SpellData resolvedSpell = spellResolver.ResolveSpell(_currentSpellPattern);
-
-                if (resolvedSpell != null)
-                {
-                    spellCast.CastSpell(resolvedSpell);
-                    Debug.Log("Player cast: " + resolvedSpell.SpellName);
-                }
-                else
-                {
-                    Debug.Log("Player failed to cast a valid spell");
-                    spellCast.FailSpell();
-                }
-
-                _currentSpellPattern = "";
                 _buildingSpell = false;
 
-                Debug.Log("spell finished");
+                SpellData resolvedSpell = spellResolver.ResolveSpell(_currentSpellPattern);
+
+                if (!resolvedSpell)
+                {
+                    if (spellbookUI)
+                    {
+                        spellbookUI.ShowInvalidPatternFeedback();
+                    }
+
+                    _currentSpellPattern = "";
+                    return;
+                }
+
+                spellCast.CastSpell(resolvedSpell);
+
+                _currentSpellPattern = "";
+                return;
+            
             }
         }
     }

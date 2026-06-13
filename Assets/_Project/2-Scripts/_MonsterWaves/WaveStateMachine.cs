@@ -1,7 +1,7 @@
 using UnityEngine;
 public class WaveStateMachine : MonoBehaviour
 {
-    
+    [SerializeField] private WaveRibbonUI waveRibbonUI;
     [SerializeField] private MonsterSpawner monsterSpawner;
     [SerializeField] private MonsterManager monsterManager;
     [SerializeField] private WaveWeaknessUI weaknessUI;
@@ -48,6 +48,11 @@ public class WaveStateMachine : MonoBehaviour
 
     private void StartFirstWave()
     {
+        if (waveRibbonUI)
+        {
+            waveRibbonUI.ShowWaveRibbon("WAVE ONE");
+        }
+        
         WaveOneState waveOneState = new WaveOneState(
             this,
             monsterSpawner,
@@ -64,6 +69,10 @@ public class WaveStateMachine : MonoBehaviour
 
     public void StartSecondWave()
     {
+        if (waveRibbonUI)
+        {
+            waveRibbonUI.ShowWaveRibbon("WAVE TWO");
+        }
 
         WaveTwoState waveTwoState = new WaveTwoState(
             this,
@@ -82,6 +91,11 @@ public class WaveStateMachine : MonoBehaviour
 
     public void StartThirdWave()
     {
+        if (waveRibbonUI)
+        {
+            waveRibbonUI.ShowWaveRibbon("WAVE THREE");
+        }
+        
         WaveThreeState waveThreeState = new WaveThreeState(
             this,
             monsterSpawner,
@@ -99,6 +113,11 @@ public class WaveStateMachine : MonoBehaviour
     
     public void StartFourthWave()
     {
+        if (waveRibbonUI)
+        {
+            waveRibbonUI.ShowWaveRibbon("WAVE FOUR");
+        }
+        
         WaveFourState waveFourState = new WaveFourState(
             this,
             monsterSpawner,
@@ -115,6 +134,12 @@ public class WaveStateMachine : MonoBehaviour
 
     public void StartFinalWave()
     {
+        
+        if (waveRibbonUI)
+        {
+            waveRibbonUI.ShowWaveRibbon("FINAL WAVE");
+        }
+        
         WaveEndState waveEndState = new WaveEndState(
             this,
             monsterSpawner,

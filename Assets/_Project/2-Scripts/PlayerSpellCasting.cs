@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// I think this script is necessary to pass the final information into the game
@@ -9,12 +10,19 @@ using UnityEngine;
 /// </summary>
 public class PlayerSpellCasting : MonoBehaviour
 {
-
+    [SerializeField] private SpellBookUI spellBookUI;
     [SerializeField] private MonsterManager monsterManager;
     [SerializeField] private PlayerHealth playerHealth;
 
     [SerializeField] private SpellProjectile spellProjectile;
     [SerializeField] private Transform projectileSpawn;
+    
+    //player gets confused or dizzy if they miss a spell instead of losing hp
+
+    [SerializeField] private float dizzyCoolDown;
+
+    private bool _isDizzy;
+    private Coroutine _dizzyCoroutine;
 
     //this script can receive a resolved spell, then tell the monster what spell is and if thats weak, if the spell is wrong, it damages the player
 
@@ -22,13 +30,25 @@ public class PlayerSpellCasting : MonoBehaviour
     {
 
         if (!spell) return;
+        if (_isDizzy) return;
 
-        MonsterController target = monsterManager.FindCorrectTarget(spell);
+        MonsterController target = monsterManager.FindCorrectTarget(spell); // finds the monster that can be killed
 
         if (!target)
         {
-            playerHealth.TakeDamage(1);
+
+            if (spellBookUI)
+            {
+                spellBookUI.ShowFailedSpellFeedback(spell);
+            }
+
+            StartDizzyCooldown();
             return;
+        }
+
+        if (spellBookUI)
+        {
+            spellBookUI.ShowSuccessForSpell(spell);
         }
 
         SpellProjectile projectile = Instantiate(
@@ -38,6 +58,32 @@ public class PlayerSpellCasting : MonoBehaviour
         );
 
         projectile.Initialize(spell, target);
+    }
+
+    private void StartDizzyCooldown()
+    {
+        
+        if (_dizzyCoroutine != null)
+        { 
+            StopCoroutine(_dizzyCoroutine);
+        }
+
+        _dizzyCoroutine = StartCoroutine(DizzyRoutine());
+
+    }
+
+    private IEnumerator DizzyRoutine()
+    {
+        _isDizzy = true;
+        Debug.Log("Player SpellCasting Dizzy");
+        
+        yield return new WaitForSeconds(dizzyCoolDown);
+        
+        _isDizzy = false;
+        _dizzyCoroutine = null;
+        
+        Debug.Log("Player not dizzy anymore");
+        
     }
 
     public void FailSpell()

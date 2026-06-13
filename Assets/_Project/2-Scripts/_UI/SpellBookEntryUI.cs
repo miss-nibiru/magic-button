@@ -7,19 +7,21 @@ using UnityEngine.UI;
 /// </summary>
 public class SpellBookEntryUI : MonoBehaviour
 {
+    //VISUALS IMAGES
     [SerializeField] private Image spellBanner;
     [SerializeField] private Image deactivatedOverlay;
-
     [SerializeField] private float overlayAlpha = 0.8f;
-    [SerializeField] private float flashTime = 0.17f;
-    [SerializeField] private float pulseTime = 0.15f;
+    [SerializeField] private Material normalMaterial;
+    [SerializeField] private Material correctFeedbackMaterial;
+    [SerializeField] private Material failFeedbackMaterial;
+
+    //FEEDBACK
+    [SerializeField] private float feedbackTime = 0.2f;
     [SerializeField] private float pulseScale = 1.1f;
 
     private SpellData _spell;
-    private Coroutine _flashCoroutine;
-    private Coroutine _pulseCoroutine;
+    private Coroutine _feedbackCoroutine;
     private Vector3 _normalScale;
-    private Outline _outline;
 
     public SpellData Spell => _spell;
 
@@ -29,23 +31,22 @@ public class SpellBookEntryUI : MonoBehaviour
 
         if (spellBanner)
         {
-            _outline = spellBanner.GetComponent<Outline>();
+            normalMaterial = spellBanner.material;
         }
-
-        if (_outline) _outline.enabled = false;
     }
 
     public void SetSpell(SpellData spell)
     {
         _spell = spell;
 
-        if (spellBanner) spellBanner.sprite = spell.SpellBookBanner;
+        if (spellBanner && spell)
+        {
+            spellBanner.sprite = spell.SpellBookBanner;
+        }
 
-        ResetBannerColor();
-
-        if (_outline) _outline.enabled = false;
+        ResetBannerVisuals();
     }
-    
+
     public void SetUseful(bool isUseful)
     {
         if (!deactivatedOverlay) return;
@@ -59,60 +60,50 @@ public class SpellBookEntryUI : MonoBehaviour
 
     public void PlaySuccessReaction()
     {
-        if (_pulseCoroutine != null) StopCoroutine(_pulseCoroutine);
-        _pulseCoroutine = StartCoroutine(PulseRoutine());
+        PlayFeedback(correctFeedbackMaterial);
     }
 
-    public void FlashRed()
+    public void PlayFailEffect()
+    {
+        PlayFeedback(failFeedbackMaterial);
+    }
+
+    private void PlayFeedback(Material feedbackMaterial)
     {
         if (!spellBanner) return;
 
-        if (_flashCoroutine != null) StopCoroutine(_flashCoroutine);
-        _flashCoroutine = StartCoroutine(FlashRedRoutine());
+        if (_feedbackCoroutine != null)
+        {
+            StopCoroutine(_feedbackCoroutine);
+        }
+
+        _feedbackCoroutine = StartCoroutine(FeedbackRoutine(feedbackMaterial));
     }
 
-    private IEnumerator PulseRoutine()
+    private IEnumerator FeedbackRoutine(Material feedbackMaterial)
     {
-        if (_outline) _outline.enabled = true;
-
         transform.localScale = _normalScale * pulseScale;
 
-        yield return new WaitForSeconds(pulseTime);
+        if (feedbackMaterial)
+        {
+            spellBanner.material = feedbackMaterial;
+        }
 
+        yield return new WaitForSeconds(feedbackTime);
+
+        ResetBannerVisuals();
+
+        _feedbackCoroutine = null;
+    }
+
+    private void ResetBannerVisuals()
+    {
         transform.localScale = _normalScale;
 
-        yield return new WaitForSeconds(pulseTime);
-
-        if (_outline) _outline.enabled = false;
-    }
-
-    private IEnumerator FlashRedRoutine()
-    {
-        spellBanner.color = new Color(1f, 0.25f, 0.25f, 1f);
-
-        yield return new WaitForSeconds(flashTime);
-
-        ResetBannerColor();
-    }
-
-    private void ResetBannerColor()
-    {
         if (!spellBanner) return;
 
-        Color bannerColor = Color.white;
-        bannerColor.a = 1f;
-        spellBanner.color = bannerColor;
+        spellBanner.material = normalMaterial;
+        spellBanner.color = Color.white;
     }
-
-    [ContextMenu("Test Success Reaction")]
-    private void TestSuccessReaction()
-    {
-        PlaySuccessReaction();
-    }
-
-    [ContextMenu("Test Red Flash")]
-    private void TestRedFlash()
-    {
-        FlashRed();
-    }
+    
 }
