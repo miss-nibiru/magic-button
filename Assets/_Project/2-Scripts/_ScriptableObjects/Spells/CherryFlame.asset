@@ -15,6 +15,6 @@ MonoBehaviour:
   spellName: Cherry Flare
   spellLetter: C
   spellPattern: -.-.
-  spellSprite: {fileID: 21300000, guid: 39ca02d1279b3436e87fb75be386fb2f, type: 3}
+  spellSprite: {fileID: 21300000, guid: 44b84c2e684f82d4f813afcb274230ea, type: 3}
   spellWaveBanner: {fileID: 21300000, guid: 54871764068f84cb89d18f9b5bc2de01, type: 3}
   spellBookBanner: {fileID: 21300000, guid: 9ba89fdc36322434c85fd7c7967f24c4, type: 3}

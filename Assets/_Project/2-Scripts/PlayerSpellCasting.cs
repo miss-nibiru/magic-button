@@ -22,12 +22,18 @@ public class PlayerSpellCasting : MonoBehaviour
     //player gets confused or dizzy if they miss a spell instead of losing hp
 
     [SerializeField] private float dizzyCoolDown;
-
+    
+    [SerializeField] private GameObject girlSprite1;
+    [SerializeField] private GameObject girlSprite2;
     private bool _isDizzy;
     private Coroutine _dizzyCoroutine;
 
     //this script can receive a resolved spell, then tell the monster what spell is and if thats weak, if the spell is wrong, it damages the player
-
+    private void Start()
+    {
+        girlSprite1.SetActive(true);
+        girlSprite2.SetActive(false);
+    }
     public void CastSpell(SpellData spell)
     {
 
@@ -52,11 +58,13 @@ public class PlayerSpellCasting : MonoBehaviour
         if (playerAudio) playerAudio.PlaySpellCastSound(); playerAudio.PlayPlayerCastSound();
 
         SpellProjectile projectile = Instantiate(
+            
             spellProjectile,
             projectileSpawn.position,
             Quaternion.identity
         );
-
+        
+        StartCoroutine(CastRoutine());
         projectile.Initialize(spell, target);
     }
 
@@ -81,6 +89,17 @@ public class PlayerSpellCasting : MonoBehaviour
         
         Debug.Log("Player not dizzy anymore");
         
+    }
+    
+    private IEnumerator CastRoutine() // Grace - spell cast animation routine
+    {
+        girlSprite1.SetActive(false);
+        girlSprite2.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        girlSprite1.SetActive(true);
+        girlSprite2.SetActive(false);
     }
 
     public void FailSpell()
