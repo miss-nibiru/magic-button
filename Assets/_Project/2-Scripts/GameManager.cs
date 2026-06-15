@@ -7,13 +7,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverCanvas;
     private IGameState _currentState;
-
-    private void Start()
-    {
-        gameOverCanvas.SetActive(false);
-    }
 
     void Update()
     {
@@ -24,14 +18,13 @@ public class GameManager : MonoBehaviour
     {
         _currentState?.StopState();
         _currentState = newState;
-
         _currentState?.StartState();
+        
     }
     
     public void BishIsDead()
     {
-        GameOverState gameOverState = new GameOverState(gameOverCanvas);
-        ChangeState(gameOverState);
+        SceneLoader.Instance.GoToGameOver();
     }
     
 }
