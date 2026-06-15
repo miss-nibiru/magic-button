@@ -15,6 +15,6 @@ MonoBehaviour:
   spellName: Umi Bubble
   spellLetter: U
   spellPattern: ..-
-  spellSprite: {fileID: 21300000, guid: 874644c83249a4fa292a4e5931f8599a, type: 3}
+  spellSprite: {fileID: 21300000, guid: 7c5d1721308aea44db92eedac7eabdba, type: 3}
   spellWaveBanner: {fileID: 21300000, guid: b24d5434af5bc4a02983d1ddb0bf7b1e, type: 3}
   spellBookBanner: {fileID: 21300000, guid: 51f8ffb11ace6413b8c9485b6bfbef5c, type: 3}

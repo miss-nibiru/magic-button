@@ -15,6 +15,6 @@ MonoBehaviour:
   spellName: CUTE Blast
   spellLetter: CUTE
   spellPattern: -.-...--.
-  spellSprite: {fileID: 21300000, guid: b7f96ddb91b444b01a4aeef954dc57bd, type: 3}
+  spellSprite: {fileID: 21300000, guid: c97ee0af8268cb348885884bb429e6da, type: 3}
   spellWaveBanner: {fileID: 21300000, guid: 1dbe0a805189d4c24ad84933b7367d74, type: 3}
   spellBookBanner: {fileID: 21300000, guid: 2653b0c9711fc40a2856980e41c3eb23, type: 3}
