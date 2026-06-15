@@ -155,3 +155,7 @@ playground.xcworkspace
 
 # Swift Package Manager
 # Package.resolved
+# Unity package manifest files
+!Packages/
+!Packages/manifest.json
+!Packages/packages-lock.json
