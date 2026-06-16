@@ -52,13 +52,9 @@ public class PlayerHealth : MonoBehaviour
     public void DieBish()
     {
         _isDead = true;
-        gameManager.BishIsDead();
+        if (gameManager) gameManager.BishIsDead();
         
     }
     
-    // public void Heal(int healAmount) -- add if theres time
-    // {
-    //     _currentHealth += healAmount;
-    // }
     
 }

@@ -55,8 +55,12 @@ public class PlayerSpellCasting : MonoBehaviour
         if (spellBookUI) spellBookUI.ShowSuccessForSpell(spell);
         if (spellText) spellText.ShowSpellName(spell);
         
-        if (playerAudio) playerAudio.PlaySpellCastSound(); playerAudio.PlayPlayerCastSound();
-
+        if (playerAudio)
+        {
+            playerAudio.PlaySpellCastSound();
+            playerAudio.PlayPlayerCastSound();
+        }
+        
         SpellProjectile projectile = Instantiate(
             
             spellProjectile,
@@ -80,14 +84,11 @@ public class PlayerSpellCasting : MonoBehaviour
     private IEnumerator DizzyRoutine()
     {
         _isDizzy = true;
-        Debug.Log("Player SpellCasting Dizzy"); // need ui to show this in the future
         
         yield return new WaitForSeconds(dizzyCoolDown);
         
         _isDizzy = false;
         _dizzyCoroutine = null;
-        
-        Debug.Log("Player not dizzy anymore");
         
     }
     
@@ -100,11 +101,6 @@ public class PlayerSpellCasting : MonoBehaviour
 
         girlSprite1.SetActive(true);
         girlSprite2.SetActive(false);
-    }
-
-    public void FailSpell()
-    {
-        playerHealth.TakeDamage(1);
     }
     
     
