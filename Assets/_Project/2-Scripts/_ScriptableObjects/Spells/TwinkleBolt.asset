@@ -16,5 +16,5 @@ MonoBehaviour:
   spellLetter: T
   spellPattern: '-'
   spellSprite: {fileID: 21300000, guid: 0e4feeff8bbce0b4ea2b10fe819a5959, type: 3}
-  spellWaveBanner: {fileID: 21300000, guid: e454005ffe19540e5a026e600f4acab1, type: 3}
+  spellWaveBanner: {fileID: 21300000, guid: 2dd66b7a201081a42a54817228e09cf4, type: 3}
   spellBookBanner: {fileID: 21300000, guid: a931cf9f1bc5046a3a99f0309af432b2, type: 3}

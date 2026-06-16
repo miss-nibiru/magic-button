@@ -16,5 +16,5 @@ MonoBehaviour:
   spellLetter: C
   spellPattern: -.-.
   spellSprite: {fileID: 21300000, guid: 44b84c2e684f82d4f813afcb274230ea, type: 3}
-  spellWaveBanner: {fileID: 21300000, guid: 54871764068f84cb89d18f9b5bc2de01, type: 3}
+  spellWaveBanner: {fileID: 21300000, guid: 0f402e6d0b6b31f4a86178cbb4d48d88, type: 3}
   spellBookBanner: {fileID: 21300000, guid: 9ba89fdc36322434c85fd7c7967f24c4, type: 3}
