@@ -61,11 +61,9 @@ public class WaveEndState : IWaveState
         if (finishedSpawning && noMonstersLeft)
         {
             _waveComplete = true;
-            Debug.Log("THE END");
-            
-            //REMINDER TO CREATE A GAME WON STATE THAT SHOWS THE PLAYER THE GAME ENDED AND ASK IF CONTINUE OR NOT
-            
+            _waveStateMachine.FinishGame();
         }
+        
     }
 
     public void StopWave()

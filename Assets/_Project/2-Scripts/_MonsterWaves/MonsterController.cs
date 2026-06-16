@@ -60,13 +60,18 @@ public class MonsterController : MonoBehaviour
         
     }
 
-    public void InitializeMonster(MainGrid mainGrid, PlayerHealth playerHealth)
+    public void InitializeMonster(MainGrid mainGrid, PlayerHealth playerHealth, int spawnColumn)
     {
         
         this.mainGrid = mainGrid;
         this.playerHealth = playerHealth;
         
+        currentColumn = spawnColumn;
+        _targetPosition = mainGrid.GetColumnLocation(currentColumn);
+        transform.position = _targetPosition;
+        
     }
+    
 
     public Vector3 GetTargetPosition()
     {

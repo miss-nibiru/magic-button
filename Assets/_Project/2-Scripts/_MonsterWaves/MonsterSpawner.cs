@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Knows how to spawn a monster on the grid.
@@ -40,12 +41,10 @@ public class MonsterSpawner : MonoBehaviour
 
         if (!monsterData) return;
 
-        int spawnColumn = monsterData.StartingColumn;
+        int spawnColumn = ChooseSpawnColumn(monsterData);
 
-        if (monsterManager.MonsterInColumn(spawnColumn))
+        if (spawnColumn < 0)
         {
-            Debug.Log("Blocked monster spawn. Column already occupied: " + spawnColumn);
-
             _spawnTimer = firstSpawnTime;
             return;
         }
@@ -56,10 +55,39 @@ public class MonsterSpawner : MonoBehaviour
 
         if (!monsterController) return;
 
-        monsterController.InitializeMonster(mainGrid, playerHealth);
+        monsterController.InitializeMonster(mainGrid, playerHealth, spawnColumn);
         monsterManager.DetectBicho(monsterController);
 
         _spawnTimer = firstSpawnTime;
+    }
+    
+    private int ChooseSpawnColumn(MonsterData monsterData)
+    {
+        List<int> validColumns = new List<int>();
+
+        for (int column = 0; column < mainGrid.gridSize; column++)
+        {
+            if (monsterManager.CanSpawnAtColumn(monsterData, column))
+            {
+                validColumns.Add(column);
+            }
+        }
+
+        if (validColumns.Count == 0)
+            return -1;
+
+        if (monsterData.RandomSpacing)
+        {
+            int randomIndex = Random.Range(0, validColumns.Count);
+            return validColumns[randomIndex];
+        }
+
+        if (validColumns.Contains(monsterData.StartingColumn))
+        {
+            return monsterData.StartingColumn;
+        }
+
+        return validColumns[validColumns.Count - 1];
     }
     
     public void SpawnMonster(GameObject[] monsterPrefabs)

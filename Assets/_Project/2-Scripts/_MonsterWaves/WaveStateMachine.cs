@@ -1,6 +1,7 @@
 using UnityEngine;
 public class WaveStateMachine : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private WaveRibbonUI waveRibbonUI;
     [SerializeField] private MonsterSpawner monsterSpawner;
     [SerializeField] private MonsterManager monsterManager;
@@ -186,6 +187,17 @@ public class WaveStateMachine : MonoBehaviour
     private void UpdateBookSpells(GameObject monsterPrefab)
     {
         UpdateBookSpells(new GameObject[] { monsterPrefab });
+    }
+    
+    public void FinishGame()
+    {
+        _currentState?.StopWave();
+        _currentState = null;
+
+        if (gameManager)
+        {
+            gameManager.BishIsDead();
+        }
     }
     
     
