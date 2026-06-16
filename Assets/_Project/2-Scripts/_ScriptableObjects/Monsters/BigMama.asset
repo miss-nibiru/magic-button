@@ -17,5 +17,9 @@ MonoBehaviour:
   monsterSpeed: 0.35
   monsterDamage: 3
   monsterSpawnDelay: 15
+  maxActive: 1
+  minTypeSpacing: 1
+  maxTypeSpacing: 1
+  randomSpacing: 0
   startingColumn: 13
   dangerZone: 0

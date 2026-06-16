@@ -10,15 +10,7 @@ public class MainGrid : MonoBehaviour
 
 
     public bool drawGrid = true;
-
-    // this grid needs to know where each column is so the monsters can know where to walk next
-
-    private void Start()
-    {
-
-        //
-
-    }
+    
 
     public Vector3 GetColumnLocation(int columnNumber)
     {
