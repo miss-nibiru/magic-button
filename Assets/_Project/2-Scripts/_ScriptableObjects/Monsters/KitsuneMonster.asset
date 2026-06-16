@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   monsterName: Fire Kitsune
   monsterWeakness: {fileID: 11400000, guid: afe62c1702d7e49e58eabfc262cdfc8a, type: 2}
-  monsterSpeed: 1
+  monsterSpeed: 0.8
   monsterDamage: 2
-  monsterSpawnDelay: 4
+  monsterSpawnDelay: 6
   startingColumn: 11
   dangerZone: 0
