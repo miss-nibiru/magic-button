@@ -170,7 +170,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3340,7 +3340,7 @@ MonoBehaviour:
   monsterManager: {fileID: 891241168}
   weaknessUI: {fileID: 730816597}
   spellBookUI: {fileID: 1345507429}
-  firstWaveMonsterPrefab: {fileID: 236191454578351916, guid: 641aa54d4d58a48b9a638ac3cb2b0fc2, type: 3}
+  firstWaveMonsterPrefab: {fileID: 236191454578351916, guid: d379f57a143f34117b86fdd24925a1e3, type: 3}
   firstWaveTotal: 8
   firstWaveMax: 3
   secondWavePrefab:
