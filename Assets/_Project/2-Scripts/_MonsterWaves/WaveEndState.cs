@@ -36,8 +36,6 @@ public class WaveEndState : IWaveState
 
     public void StartWave()
     {
-        Debug.Log("THE END!");
-
         _currentSpawnCount = 0;
         _waveComplete = false;
     }
